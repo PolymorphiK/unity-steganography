@@ -17,6 +17,9 @@ public class Main : MonoBehaviour {
 	// this is not the ideal way, but for the sake
 	// of simplicity let's go with it.
 	public void Open(string target) {
+#if UNITY_STANDALONE
+		target += " - Desktop";
+#endif
 		if(this.screens.ContainsKey(target)) {
 			if(this.current) {
 				this.current.gameObject.SetActive(false);

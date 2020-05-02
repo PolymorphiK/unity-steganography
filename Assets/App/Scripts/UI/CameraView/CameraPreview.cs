@@ -226,6 +226,10 @@ public class CameraPreview : MonoBehaviour {
 
 			var ratio = size.x / size.y;
 
+			var aspectRatioFitter = this.GetComponent<AspectRatioFitter>();
+
+			if(aspectRatioFitter) aspectRatioFitter.aspectRatio = ratio;
+
 			// The large side is the height....
 			if(compass.y > 0.0F) {
 				var height = pSize.x * ratio;
