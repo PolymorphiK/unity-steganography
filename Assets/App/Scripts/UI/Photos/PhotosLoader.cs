@@ -72,7 +72,6 @@ public class PhotosLoader : MonoBehaviour {
 
 				uThread.RunCoroutine(this.Yield(operations[func_j]),
 					() => {
-						Debug.Log(index);
 						var operation = operations[func_j];
 
 						if(operation.webRequest.isHttpError || operation.webRequest.isNetworkError) {

@@ -201,6 +201,10 @@ public class CameraPreview : MonoBehaviour {
 
 			var size = new Vector2(cam_width, cam_height);
 
+			var aspectRatioFitter = this.GetComponent<AspectRatioFitter>();
+
+			if(aspectRatioFitter) aspectRatioFitter.aspectRatio = size.x / size.y;
+
 			if(this.IsFrontFacing) {
 				this.Preview.transform.localRotation = Quaternion.Euler(0.0F, 0.0F,  -this.webCamTexture.videoRotationAngle);
 			} else {
@@ -225,10 +229,6 @@ public class CameraPreview : MonoBehaviour {
 			pSize.y = Mathf.Abs(pSize.y);
 
 			var ratio = size.x / size.y;
-
-			var aspectRatioFitter = this.GetComponent<AspectRatioFitter>();
-
-			if(aspectRatioFitter) aspectRatioFitter.aspectRatio = ratio;
 
 			// The large side is the height....
 			if(compass.y > 0.0F) {

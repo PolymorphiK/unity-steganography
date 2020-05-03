@@ -276,11 +276,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main - Desktop
       objectReference: {fileID: 0}
-    - target: {fileID: 7099143607347282067, guid: 66068f39b00d54942bc0f4ad7a1b9eb6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7099143607347282071, guid: 66068f39b00d54942bc0f4ad7a1b9eb6,
         type: 3}
       propertyPath: m_LocalPosition.x
