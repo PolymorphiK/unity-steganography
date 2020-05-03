@@ -28,7 +28,9 @@ public class ImageEncoder : MonoBehaviour {
 	public virtual void Encode() {
 		var pixels = this.picture.GetPixels32();
 
-		LSB.Encode(pixels, System.Text.Encoding.UTF8.GetBytes(this.message),
+		var message = this.message + "]|[";
+
+		LSB.Encode(pixels, System.Text.Encoding.UTF8.GetBytes(message),
 			(code) => {
 				if(code == LSB.Code.Success) {
 					var result = new Texture2D(this.picture.width, this.picture.height);

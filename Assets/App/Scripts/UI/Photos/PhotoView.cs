@@ -85,6 +85,25 @@ public class PhotoView : MonoBehaviour {
 
 				var message = System.Text.Encoding.UTF8.GetString(data);
 
+				int index = -1;
+
+				for(int i = 0; i < message.Length; ++i) {
+					if(message[i] == ']') {
+						if((i + 1) < message.Length) {
+							if(message[i + 1] == '|' && message[i + 2] == '[') {
+								index = i;
+								break;
+							}
+						} else {
+							index = -1;
+						}
+					}
+				}
+
+				if (index == -1) return;
+
+				message = message.Substring(0, index);
+
 				Dialog.Show(message);
 		});
 	}
