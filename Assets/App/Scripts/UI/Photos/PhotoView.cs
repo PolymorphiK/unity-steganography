@@ -88,6 +88,8 @@ public class PhotoView : MonoBehaviour {
 				int index = -1;
 
 				for(int i = 0; i < message.Length; ++i) {
+					// sanity check of when transmission
+					// fails (don't know why don't care)
 					if(message[i] == ']') {
 						if((i + 1) < message.Length) {
 							if(message[i + 1] == '|' && message[i + 2] == '[') {

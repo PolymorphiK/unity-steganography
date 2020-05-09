@@ -99,7 +99,6 @@ public static class LSB {
 	}
 
 	static void Set(byte source, ref byte target) {
-		//Debug.Log("Target: " + target);
 		// 1111 1111 TARGET Example
 		// 0000 0100 SOURCE Example
 
@@ -120,10 +119,10 @@ public static class LSB {
 			// 1111 1110 TARGET
 			// 0000 0000 SOURCE & LSB
 			// 1111 1110 TARGET | (SOURCE & LSB)
-			target = (byte)(target | (source & lsb)); // set the target's LSB to source's LSB
-		};
 
-		//Debug.Log("Target After: " + target);
+			// set the target's LSB to source's LSB
+			target = (byte)(target | (source & lsb));
+		};
 	}
 
 	public static void Decode(Color32[] colors, System.Action<Code, byte[]> onComplete) {
@@ -136,6 +135,7 @@ public static class LSB {
 				byte result = 0;
 				byte lsb = 1 << 0;
 
+				// Extract data...
 				for(int i = 0; i < colors.Length; ++i) {
 					color[0] = colors[i].r;
 					color[1] = colors[i].g;
